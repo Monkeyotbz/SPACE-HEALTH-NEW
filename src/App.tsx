@@ -1,7 +1,7 @@
-import React from 'react';
-import { Calendar, Clock, FileText, Stethoscope, User, Users } from 'lucide-react';
+import { Calendar, Clock, FileText, Stethoscope } from 'lucide-react';
 import Navbar from './components/Navbar';
 import ServiceCard from './components/ServiceCard';
+import { Facebook, Twitter, Instagram } from 'lucide-react';
 
 function App() {
   const services = [
@@ -84,20 +84,45 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900">
-              Nuestro Médico Principal
+              Nuestro Médico Fundador
             </h2>
             <div className="mt-8">
               <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
                 <img
-                  src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80"
+                  src="/drdiegocarvajal2.jpg"
                   alt="Dr. Diego Carvajal"
                   className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
                 />
                 <h3 className="text-2xl font-bold text-gray-900">Dr. Diego Carvajal</h3>
-                <p className="text-blue-600 font-medium mb-4">Médico Principal</p>
+                <p className="text-blue-600 font-medium mb-4">Médico Cirujano Especialista</p>
                 <p className="text-gray-600">
                   Especialista en medicina general con amplia experiencia en atención primaria y telemedicina.
                   Comprometido con brindar atención médica de calidad a través de nuestra plataforma virtual.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Developer Section */}
+      <div className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold text-gray-900">
+            Desarrollador y Cofundador
+            </h2>
+            <div className="mt-8">
+              <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
+                <img
+                  src="/Gabriel.jpg" // Asegúrate de reemplazar esto con la ruta correcta de tu foto
+                  alt="Tu Nombre"
+                  className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
+                />
+                <h3 className="text-2xl font-bold text-gray-900">Gabriel Abad Carvajal Gutierréz</h3>
+                <p className="text-blue-600 font-medium mb-4">Desarrollador y Cofundador</p>
+                <p className="text-gray-600">
+                  Desarrollador de software con experiencia en la creación de aplicaciones web y móviles. Apasionado por la tecnología y comprometido con la innovación en el sector salud.
                 </p>
               </div>
             </div>
@@ -130,6 +155,30 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/* Footer Section */}
+      <footer className="bg-gray-800 text-white py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center">
+            <div>
+              <h3 className="text-lg font-bold">Space Health</h3>
+              <p className="mt-2">Hecho en Colombia y Venezuela para el mundo</p>
+              <p className="mt-2">© 2025 Space Health. Todos los derechos reservados.</p>
+            </div>
+            <div className="flex space-x-4">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <Facebook className="w-6 h-6 text-white hover:text-blue-500" />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <Twitter className="w-6 h-6 text-white hover:text-blue-500" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <Instagram className="w-6 h-6 text-white hover:text-blue-500" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
