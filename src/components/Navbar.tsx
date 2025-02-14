@@ -5,12 +5,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <nav className="bg-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-white shadow-lg  bg-opacity-80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
               <span className="text-2xl font-bold text-blue-600">Space Health</span>
+              <img src="/LOGO.png" alt="Space Health Logo" className="w-12 h-12 ml-2 animate-rotate" />
             </div>
           </div>
           

@@ -1,9 +1,17 @@
 import { Calendar, Clock, FileText, Stethoscope } from 'lucide-react';
 import Navbar from './components/Navbar';
 import ServiceCard from './components/ServiceCard';
+import LoadingScreen from './components/LoadingScreen';
 import { Facebook, Twitter, Instagram } from 'lucide-react';
+import { useState } from 'react';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleContinue = () => {
+    setIsLoading(false);
+  };
+
   const services = [
     {
       title: "Consultas Virtuales",
@@ -31,19 +39,26 @@ function App() {
     }
   ];
 
+  if (isLoading) {
+    return <LoadingScreen onContinue={handleContinue} />;
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen main-container">
       <Navbar />
       
       {/* Hero Section */}
-      <div className="relative bg-white">
+      <div className="relative bg-white bg-opacity-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-              <span className="block">Space Health</span>
-              <span className="block text-blue-600">El futuro de la salud, hoy</span>
+              <div className="inline-block bg-blue-600 bg-opacity-60 p-2 rounded flex items-center justify-center mb-8 shadow-md border border-blue-300">
+                <img src="/LOGO.png" alt="Space Health Logo" className="inline-block w-46 h-40 mr-5 animate-move-rotate" />
+                <span className="block text-white">Space Health</span>
+              </div>
+              <span className="block text-white">El futuro de la salud </span>
             </h1>
-            <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+            <p className="mt-3 max-w-md mx-auto text-base text-white sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
               Acceda a servicios médicos de calidad desde cualquier lugar. Consultas virtuales, revisión de exámenes y programación de citas en un solo lugar.
             </p>
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
@@ -58,13 +73,13 @@ function App() {
       </div>
 
       {/* Services Section */}
-      <div id="servicios" className="py-12 bg-gray-50">
+      <div id="servicios" className="py-12 bg-gray-50 bg-opacity-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900">
               Nuestros Servicios
             </h2>
-            <p className="mt-4 text-lg text-gray-500">
+            <p className="mt-4 text-lg text-black">
               Todo lo que necesita para cuidar su salud en un solo lugar
             </p>
           </div>
@@ -80,10 +95,10 @@ function App() {
       </div>
 
       {/* Doctor Section */}
-      <div className="bg-white py-12">
+      <div className="bg-white bg-opacity-10 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900">
+            <h2 className="text-3xl font-extrabold text-white">
               Nuestro Médico Fundador
             </h2>
             <div className="mt-8">
@@ -106,11 +121,11 @@ function App() {
       </div>
 
       {/* Developer Section */}
-      <div className="bg-white py-12">
+      <div className="bg-white bg-opacity-10 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900">
-            Desarrollador y Cofundador
+            <h2 className="text-3xl font-extrabold text-white">
+              Desarrollador y Cofundador
             </h2>
             <div className="mt-8">
               <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
@@ -131,7 +146,7 @@ function App() {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-blue-600">
+      <div className="bg-blue-600 bg-opacity-80">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             <div className="text-center">
