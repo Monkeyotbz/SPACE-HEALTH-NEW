@@ -4,12 +4,22 @@ import ServiceCard from './components/ServiceCard';
 import LoadingScreen from './components/LoadingScreen';
 import { Facebook, Twitter, Instagram } from 'lucide-react';
 import { useState } from 'react';
+import RegisterScreen from './components/RegisterScreen';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isRegistering, setIsRegistering] = useState(false);
 
   const handleContinue = () => {
     setIsLoading(false);
+  };
+
+  const handleRegister = () => {
+    setIsRegistering(true);
+  };
+
+  const handleCancelRegister = () => {
+    setIsRegistering(false);
   };
 
   const services = [
@@ -43,9 +53,13 @@ function App() {
     return <LoadingScreen onContinue={handleContinue} />;
   }
 
+  if (isRegistering) {
+    return <RegisterScreen onContinue={handleCancelRegister} />;
+  }
+
   return (
     <div className="min-h-screen main-container">
-      <Navbar />
+      <Navbar onRegister={handleRegister} />
       
       {/* Hero Section */}
       <div className="relative bg-white bg-opacity-10">

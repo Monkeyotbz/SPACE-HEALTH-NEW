@@ -68,3 +68,11 @@ Para mantener el proyecto actualizado:
 ## Contacto
 
 Para soporte o consultas, contacta al equipo de desarrollo.
+
+
+En resumen, el proyecto "SPACE-HEALTH" es una plataforma moderna para servicios médicos en línea construida con React y TypeScript, utilizando herramientas como Vite y Tailwind CSS.
+
+
+
+
+Gabriel Abad Carvajal Gutierrez Copyrigth°

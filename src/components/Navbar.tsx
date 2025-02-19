@@ -1,8 +1,24 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar = ({ onRegister }: { onRegister: () => void }) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Adjust the timeout duration as needed
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <span className="text-2xl font-bold text-blue-600">Loading...</span>
+      </div>
+    );
+  }
 
   return (
     <nav className="bg-white shadow-lg  bg-opacity-80">
@@ -31,9 +47,9 @@ const Navbar = () => {
               </a>
             </div>
             <div className="ml-6">
-              <a href="#login" className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+              <button onClick={onRegister} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
                 Iniciar Sesión
-              </a>
+              </button>
             </div>
           </div>
 
@@ -69,9 +85,9 @@ const Navbar = () => {
               Contacto
             </a>
             <div className="mt-4 px-3">
-              <a href="#login" className="block text-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+              <button onClick={onRegister} className="block text-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
                 Iniciar Sesión
-              </a>
+              </button>
             </div>
           </div>
         </div>
